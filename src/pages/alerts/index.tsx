@@ -3,12 +3,12 @@ import { View, Text, ScrollView } from '@tarojs/components';
 import Taro, { useDidShow } from '@tarojs/taro';
 import AlertCard from '@/components/AlertCard';
 import FilterBar, { FilterOption } from '@/components/FilterBar';
-import { mockAlerts } from '@/data/alerts';
-import { Alert, Priority } from '@/types';
+import { useStore } from '@/store/app-context';
+import { Priority } from '@/types';
 import styles from './index.module.scss';
 
 const AlertsPage: React.FC = () => {
-  const [alerts, setAlerts] = useState<Alert[]>(mockAlerts);
+  const { alerts, markAlertRead, markAllRead } = useStore();
   const [filterValue, setFilterValue] = useState<string>('all');
   const [sortBy, setSortBy] = useState<'time' | 'priority'>('time');
 
@@ -53,8 +53,8 @@ const AlertsPage: React.FC = () => {
     return list;
   }, [alerts, filterValue, sortBy]);
 
-  const markAllRead = () => {
-    setAlerts(prev => prev.map(a => ({ ...a, isRead: true })));
+  const handleMarkAllRead = () => {
+    markAllRead();
     Taro.showToast({ title: '已全部标记已读', icon: 'success' });
   };
 
@@ -122,7 +122,7 @@ const AlertsPage: React.FC = () => {
           >
             按优先级
           </Text>
-          {unreadCount > 0 && <Text className={styles.sortBtn} onClick={markAllRead}>全部已读</Text>}
+          {unreadCount > 0 && <Text className={styles.sortBtn} onClick={handleMarkAllRead}>全部已读</Text>}
         </View>
       </View>
 
@@ -133,9 +133,7 @@ const AlertsPage: React.FC = () => {
               key={alert.id}
               alert={alert}
               onClick={() => {
-                setAlerts(prev =>
-                  prev.map(a => (a.id === alert.id ? { ...a, isRead: true } : a))
-                );
+                markAlertRead(alert.id);
                 console.log('[AlertsPage] 进入详情:', alert.id);
                 Taro.navigateTo({ url: `/pages/detail/index?id=${alert.id}` });
               }}

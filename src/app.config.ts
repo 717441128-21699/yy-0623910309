@@ -2,7 +2,6 @@ export default defineAppConfig({
   pages: [
     'pages/alerts/index',
     'pages/follow/index',
-    'pages/mine/index',
     'pages/detail/index'
   ],
   window: {
@@ -25,10 +24,6 @@ export default defineAppConfig({
       {
         pagePath: 'pages/follow/index',
         text: '我的关注'
-      },
-      {
-        pagePath: 'pages/mine/index',
-        text: '我的'
       }
     ]
   }

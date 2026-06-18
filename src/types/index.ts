@@ -21,6 +21,7 @@ export interface Alert {
   platforms: PlatformSource[];
   mainDemands: string[];
   suggestedPriority: string;
+  suggestedAction: DutyActionType;
   triggeredAt: string;
   isRead: boolean;
   isHandled: boolean;

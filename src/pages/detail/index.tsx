@@ -6,21 +6,24 @@ import PriorityBadge from '@/components/PriorityBadge';
 import FilterBar, { FilterOption } from '@/components/FilterBar';
 import CommentItem from '@/components/CommentItem';
 import DutyActionSheet from '@/components/DutyActionSheet';
-import { mockAlerts } from '@/data/alerts';
+import { useStore } from '@/store/app-context';
 import { mockComments } from '@/data/comments';
-import { DUTY_ACTION_OPTIONS, DutyActionType, Priority, Sentiment, Alert } from '@/types';
+import { DUTY_ACTION_OPTIONS, DutyActionType, Priority, Sentiment } from '@/types';
 import styles from './index.module.scss';
 
 const DetailPage: React.FC = () => {
   const router = useRouter();
   const alertId = router.params.id || 'a001';
+  const { alerts, confirmDuty } = useStore();
 
-  const [alert, setAlert] = useState<Alert | undefined>(
-    mockAlerts.find(a => a.id === alertId) || mockAlerts[0]
-  );
   const [sentimentFilter, setSentimentFilter] = useState<string>('all');
   const [sortBy, setSortBy] = useState<'hot' | 'time'>('hot');
   const [actionSheetVisible, setActionSheetVisible] = useState(false);
+
+  const alert = useMemo(
+    () => alerts.find(a => a.id === alertId) || alerts[0],
+    [alerts, alertId]
+  );
 
   useDidShow(() => {
     console.log('[DetailPage] 页面加载，alertId:', alertId);
@@ -45,7 +48,7 @@ const DetailPage: React.FC = () => {
   ];
 
   const hotComments = useMemo(() => {
-    return allComments.filter(c => c.isHot);
+    return [...allComments].sort((a, b) => (b.likes + b.reposts * 2) - (a.likes + a.reposts * 2)).slice(0, 5);
   }, [allComments]);
 
   const filteredComments = useMemo(() => {
@@ -62,13 +65,7 @@ const DetailPage: React.FC = () => {
   }, [allComments, sentimentFilter, sortBy]);
 
   const handleConfirm = (action: DutyActionType, note: string) => {
-    setAlert(prev => prev ? {
-      ...prev,
-      isHandled: true,
-      dutyAction: action,
-      dutyNote: note,
-      dutyAt: new Date().toISOString().replace('T', ' ').slice(0, 19)
-    } : prev);
+    confirmDuty(alertId, action, note);
     setActionSheetVisible(false);
     Taro.showToast({ title: '值班确认已提交', icon: 'success' });
     console.log('[DetailPage] 值班确认:', { action, note });
@@ -123,7 +120,7 @@ const DetailPage: React.FC = () => {
             <Text className={styles.handledLabel}>{dutyOption.label}</Text>
             <Text className={styles.handledNote}>{alert.dutyNote}</Text>
             <Text className={styles.handledTime}>
-              处理时间：{alert.dutyAt?.slice(5, 16)} · 操作人：李明
+              处理时间：{alert.dutyAt?.slice(5, 16)} · 操作人：李主管
             </Text>
           </View>
         </View>
@@ -242,7 +239,7 @@ const DetailPage: React.FC = () => {
         <View className={styles.section}>
           <View className={styles.sectionHeader}>
             <Text className={styles.sectionTitle}>🔥 热门评论 TOP</Text>
-            <Text className={styles.sectionMore}>最多点赞/转发</Text>
+            <Text className={styles.sectionMore}>按点赞+转发热度排序</Text>
           </View>
           <View>
             {hotComments.slice(0, 2).map(c => (

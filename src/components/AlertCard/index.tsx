@@ -117,6 +117,23 @@ const AlertCard: React.FC<AlertCardProps> = ({ alert, onClick }) => {
         <Text className={styles.demandText}>{alert.mainDemands[0]}</Text>
       </View>
 
+      {!alert.isHandled && alert.suggestedAction && (
+        <View className={styles.suggestRow}>
+          <View
+            className={styles.suggestTag}
+            style={{
+              background: `${DUTY_ACTION_OPTIONS.find(o => o.value === alert.suggestedAction)?.color || '#86909C'}15`,
+              color: DUTY_ACTION_OPTIONS.find(o => o.value === alert.suggestedAction)?.color || '#86909C'
+            }}
+          >
+            <Text className={styles.suggestTagText}>
+              建议{DUTY_ACTION_OPTIONS.find(o => o.value === alert.suggestedAction)?.label || ''}
+            </Text>
+          </View>
+          <Text className={styles.suggestText}>{alert.suggestedPriority}</Text>
+        </View>
+      )}
+
       {alert.isHandled && dutyOption && (
         <View className={styles.handledRow}>
           <View className={styles.handledTag} style={{ background: `${dutyOption.color}15`, color: dutyOption.color }}>

@@ -34,7 +34,7 @@
 }
 
 .tabText {
-  font-size: $font-size-sm;
+  font-size: $font-size-xs;
   color: $color-text-secondary;
 }
 
@@ -68,6 +68,99 @@
   margin-bottom: $spacing-xl;
 }
 
+.addCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+  margin-bottom: $spacing-md;
+  border: 2rpx solid $color-primary;
+}
+
+.addField {
+  margin-bottom: $spacing-md;
+}
+
+.addLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  font-weight: $font-weight-medium;
+  margin-bottom: 8rpx;
+  display: block;
+}
+
+.addInput {
+  width: 100%;
+  height: $button-height-md;
+  background: $color-bg-page;
+  border-radius: $radius-md;
+  padding: 0 $spacing-md;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  border: 1rpx solid $color-border;
+}
+
+.addActions {
+  display: flex;
+  gap: $spacing-md;
+  margin-top: $spacing-md;
+}
+
+.addCancelBtn {
+  flex: 1;
+  height: $button-height-md;
+  @include flex-center;
+  border-radius: $radius-md;
+  background: $color-bg-page;
+}
+
+.addCancelText {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
+}
+
+.addConfirmBtn {
+  flex: 1;
+  height: $button-height-md;
+  @include flex-center;
+  border-radius: $radius-md;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+}
+
+.addConfirmText {
+  font-size: $font-size-sm;
+  color: $color-text-white;
+  font-weight: $font-weight-semibold;
+}
+
+.catRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8rpx;
+  margin-top: 8rpx;
+}
+
+.catTag {
+  padding: 8rpx 18rpx;
+  border-radius: $radius-round;
+  background: $color-bg-tag;
+  border: 1rpx solid transparent;
+}
+
+.catTagText {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+}
+
+.catTagActive {
+  background: rgba($color-primary, 0.08);
+  border-color: $color-primary;
+  .catTagText {
+    color: $color-primary;
+    font-weight: $font-weight-medium;
+  }
+}
+
 .gameCard {
   background: $color-bg-card;
   border-radius: $radius-lg;
@@ -80,7 +173,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: $spacing-md;
 }
 
 .gameInfo {
@@ -164,10 +256,9 @@
 .kwWord {
   font-size: $font-size-md;
   font-weight: $font-weight-semibold;
-  color: $color-text-primary;
+  color: $color-priority-high;
   padding: 10rpx 20rpx;
   background: $color-priority-high-bg;
-  color: $color-priority-high;
   border-radius: $radius-sm;
   flex-shrink: 0;
 }
@@ -195,6 +286,66 @@
   font-size: $font-size-xs;
   font-weight: $font-weight-semibold;
   color: $color-text-secondary;
+}
+
+.recordCard {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.recordHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: $spacing-sm;
+}
+
+.recordTitle {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+  flex: 1;
+  margin-right: $spacing-sm;
+}
+
+.recordTag {
+  padding: 6rpx 16rpx;
+  border-radius: $radius-xs;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  flex-shrink: 0;
+}
+
+.recordNote {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+  margin-bottom: $spacing-sm;
+}
+
+.recordMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: $spacing-sm;
+  border-top: 1rpx solid $color-divider;
+}
+
+.recordTime {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.recordOp {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.recordCount {
+  font-size: $font-size-sm;
+  color: $color-text-tertiary;
 }
 
 .switch {
