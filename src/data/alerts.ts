@@ -1,0 +1,182 @@
+import { Alert } from '@/types';
+
+export const mockAlerts: Alert[] = [
+  {
+    id: 'a001',
+    title: '无法登录问题集中爆发',
+    game: '星辰幻想',
+    channel: '全渠道',
+    keyword: '无法登录',
+    priority: 'high',
+    growthRate: 428,
+    totalCount: 1287,
+    platforms: [
+      { name: 'TapTap', count: 482 },
+      { name: '官方社区', count: 356 },
+      { name: 'B站评论区', count: 289 },
+      { name: 'NGA', count: 160 }
+    ],
+    mainDemands: ['登录提示服务器连接失败', '卡在加载进不去游戏', 'iOS用户登录异常'],
+    suggestedPriority: '建议立即联系运维排查登录服务',
+    triggeredAt: '2026-06-19 19:42:00',
+    isRead: false,
+    isHandled: false,
+    sentimentStats: { positive: 32, neutral: 188, negative: 1067 }
+  },
+  {
+    id: 'a002',
+    title: '玩家集中反馈封号误判',
+    game: '星辰幻想',
+    channel: '安卓官服',
+    keyword: '封号误判',
+    priority: 'high',
+    growthRate: 312,
+    totalCount: 534,
+    platforms: [
+      { name: '官方社区', count: 241 },
+      { name: 'QQ群反馈', count: 168 },
+      { name: '贴吧', count: 125 }
+    ],
+    mainDemands: ['正常充值账号被封停', '误封申诉渠道不畅通', '希望人工复核封禁名单'],
+    suggestedPriority: '需运营发布解释公告+开通快速申诉通道',
+    triggeredAt: '2026-06-19 18:15:00',
+    isRead: false,
+    isHandled: false,
+    sentimentStats: { positive: 12, neutral: 56, negative: 466 }
+  },
+  {
+    id: 'a003',
+    title: '新版本活动补偿争议',
+    game: '三界传说',
+    channel: 'iOS官服',
+    keyword: '补偿太少',
+    priority: 'mid',
+    growthRate: 186,
+    totalCount: 412,
+    platforms: [
+      { name: 'TapTap', count: 198 },
+      { name: 'B站动态', count: 142 },
+      { name: '微博', count: 72 }
+    ],
+    mainDemands: ['维护后补偿钻石太少', '对比上一版本补偿缩水', '希望增加体力材料补偿'],
+    suggestedPriority: '建议评估补偿方案，必要时追加补偿',
+    triggeredAt: '2026-06-19 16:30:00',
+    isRead: true,
+    isHandled: false,
+    sentimentStats: { positive: 28, neutral: 112, negative: 272 }
+  },
+  {
+    id: 'a004',
+    title: '大量玩家申请退款',
+    game: '剑影江湖',
+    channel: 'B站渠道服',
+    keyword: '退款',
+    priority: 'high',
+    growthRate: 254,
+    totalCount: 289,
+    platforms: [
+      { name: 'B站评论', count: 156 },
+      { name: '官方社区', count: 88 },
+      { name: '应用商店评论', count: 45 }
+    ],
+    mainDemands: ['充值后未到账要求退款', '抽奖概率不符预期', '新版本体验差集体退款'],
+    suggestedPriority: '高风险！需财务+运营协同处理，关注差评潮',
+    triggeredAt: '2026-06-19 14:08:00',
+    isRead: true,
+    isHandled: true,
+    dutyAction: 'tech',
+    dutyNote: '已联系支付组核查到账问题，运营准备补偿方案',
+    dutyAt: '2026-06-19 14:45:00',
+    sentimentStats: { positive: 8, neutral: 34, negative: 247 }
+  },
+  {
+    id: 'a005',
+    title: '新卡池概率被质疑',
+    game: '星辰幻想',
+    channel: '全渠道',
+    keyword: '概率',
+    priority: 'mid',
+    growthRate: 142,
+    totalCount: 356,
+    platforms: [
+      { name: 'NGA', count: 142 },
+      { name: '贴吧', count: 121 },
+      { name: 'TapTap', count: 93 }
+    ],
+    mainDemands: ['保底机制不透明', '质疑实际出货率低于公示', '要求公布抽取数据'],
+    suggestedPriority: '建议法务审核公示内容，运营准备说明帖',
+    triggeredAt: '2026-06-19 11:20:00',
+    isRead: true,
+    isHandled: true,
+    dutyAction: 'notice',
+    dutyNote: '已准备概率说明公告，补充保底案例展示',
+    dutyAt: '2026-06-19 12:05:00',
+    sentimentStats: { positive: 45, neutral: 88, negative: 223 }
+  },
+  {
+    id: 'a006',
+    title: '跨服战卡顿严重',
+    game: '三界传说',
+    channel: '华为渠道服',
+    keyword: '卡顿',
+    priority: 'mid',
+    growthRate: 168,
+    totalCount: 234,
+    platforms: [
+      { name: '官方社区', count: 98 },
+      { name: '应用商店', count: 76 },
+      { name: 'QQ群', count: 60 }
+    ],
+    mainDemands: ['跨服战时帧率掉到20以下', '团战技能特效过多卡顿', '发热明显耗电快'],
+    suggestedPriority: '性能优化类，建议排期纳入下个版本',
+    triggeredAt: '2026-06-19 09:45:00',
+    isRead: true,
+    isHandled: false,
+    sentimentStats: { positive: 18, neutral: 72, negative: 144 }
+  },
+  {
+    id: 'a007',
+    title: '赛季奖励发放异常',
+    game: '剑影江湖',
+    channel: '全渠道',
+    keyword: '补偿',
+    priority: 'low',
+    growthRate: 85,
+    totalCount: 142,
+    platforms: [
+      { name: '官方社区', count: 68 },
+      { name: 'TapTap', count: 48 },
+      { name: '贴吧', count: 26 }
+    ],
+    mainDemands: ['赛季结束奖励未到账', '个别段位奖励缺失', '结算时间延迟'],
+    suggestedPriority: '常规运营事故，补发即可',
+    triggeredAt: '2026-06-19 08:12:00',
+    isRead: true,
+    isHandled: true,
+    dutyAction: 'ticket',
+    dutyNote: '已并入今日工单高峰，客服按模板处理补发申请',
+    dutyAt: '2026-06-19 09:00:00',
+    sentimentStats: { positive: 22, neutral: 58, negative: 62 }
+  },
+  {
+    id: 'a008',
+    title: '角色模型穿模bug',
+    game: '星辰幻想',
+    channel: '安卓官服',
+    keyword: 'BUG',
+    priority: 'low',
+    growthRate: 62,
+    totalCount: 98,
+    platforms: [
+      { name: 'B站评论区', count: 45 },
+      { name: '官方社区', count: 35 },
+      { name: '抖音评论', count: 18 }
+    ],
+    mainDemands: ['新时装与武器模型穿模', '特定动作时建模变形', '截图分享效果很差'],
+    suggestedPriority: '美术下个版本修复',
+    triggeredAt: '2026-06-19 02:30:00',
+    isRead: true,
+    isHandled: false,
+    sentimentStats: { positive: 38, neutral: 42, negative: 18 }
+  }
+];

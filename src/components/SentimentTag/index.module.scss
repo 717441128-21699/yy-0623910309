@@ -1,0 +1,41 @@
+@use '@/styles/variables.scss' as *;
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rpx;
+  padding: 6rpx 14rpx;
+  border-radius: $radius-xs;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}
+
+.icon {
+  font-size: $font-size-sm;
+  line-height: 1;
+}
+
+.label {
+  line-height: 1;
+}
+
+.count {
+  line-height: 1;
+  font-weight: $font-weight-semibold;
+}
+
+.sentiment-positive {
+  background: $color-sentiment-positive-bg;
+  color: $color-sentiment-positive;
+}
+
+.sentiment-neutral {
+  background: $color-sentiment-neutral-bg;
+  color: $color-sentiment-neutral;
+}
+
+.sentiment-negative {
+  background: $color-sentiment-negative-bg;
+  color: $color-sentiment-negative;
+}

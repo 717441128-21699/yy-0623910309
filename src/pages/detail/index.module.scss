@@ -1,0 +1,396 @@
+@use '@/styles/variables.scss' as *;
+
+.page {
+  min-height: 100vh;
+  background: $color-bg-page;
+  padding-bottom: calc(#{$button-height-lg} + 160rpx);
+}
+
+.headerBanner {
+  margin: $spacing-lg;
+  margin-bottom: $spacing-md;
+  padding: $spacing-xl;
+  border-radius: $radius-lg;
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  box-shadow: 0 12rpx 32rpx rgba(30, 100, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.headerBanner::after {
+  content: '';
+  position: absolute;
+  right: -40rpx;
+  top: -40rpx;
+  width: 200rpx;
+  height: 200rpx;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.bannerTitle {
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  color: $color-text-white;
+  line-height: $line-height-tight;
+  margin-bottom: $spacing-md;
+  position: relative;
+  z-index: 1;
+}
+
+.bannerMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-bottom: $spacing-lg;
+  position: relative;
+  z-index: 1;
+}
+
+.bannerTag {
+  padding: 6rpx 16rpx;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: $radius-xs;
+  font-size: $font-size-xs;
+  color: $color-text-white;
+}
+
+.bannerStats {
+  display: flex;
+  gap: $spacing-xl;
+  position: relative;
+  z-index: 1;
+  padding-top: $spacing-md;
+  border-top: 1rpx solid rgba(255, 255, 255, 0.2);
+}
+
+.bannerStat {
+  display: flex;
+  flex-direction: column;
+  gap: 6rpx;
+}
+
+.bannerStatVal {
+  font-size: 40rpx;
+  font-weight: $font-weight-bold;
+  color: $color-text-white;
+  line-height: 1;
+}
+
+.bannerStatLabel {
+  font-size: $font-size-xs;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.section {
+  margin: 0 $spacing-lg $spacing-lg;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-md;
+  padding: 0 4rpx;
+}
+
+.sectionTitle {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.sectionMore {
+  font-size: $font-size-xs;
+  color: $color-primary;
+}
+
+.card {
+  background: $color-bg-card;
+  border-radius: $radius-lg;
+  padding: $spacing-lg;
+  box-shadow: $shadow-card;
+}
+
+.sentimentBlock {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.sentimentDonut {
+  width: 160rpx;
+  height: 160rpx;
+  flex-shrink: 0;
+  position: relative;
+  @include flex-center;
+}
+
+.sentimentCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.centerVal {
+  font-size: 36rpx;
+  font-weight: $font-weight-bold;
+  color: $color-sentiment-negative;
+  line-height: 1;
+}
+
+.centerLabel {
+  font-size: 20rpx;
+  color: $color-text-tertiary;
+}
+
+.sentimentLegend {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.legendLeft {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.legendDot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: $radius-round;
+}
+
+.legendLabel {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.legendRight {
+  display: flex;
+  align-items: baseline;
+  gap: 8rpx;
+}
+
+.legendCount {
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  color: $color-text-primary;
+}
+
+.legendPercent {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.demandItem {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-sm;
+  padding: $spacing-sm 0;
+  border-bottom: 1rpx solid $color-divider;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.demandNum {
+  width: 36rpx;
+  height: 36rpx;
+  border-radius: $radius-xs;
+  background: $color-primary-bg;
+  color: $color-primary;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-semibold;
+  @include flex-center;
+  flex-shrink: 0;
+}
+
+.demandText {
+  flex: 1;
+  font-size: $font-size-sm;
+  color: $color-text-primary;
+  line-height: $line-height-normal;
+}
+
+.suggestionBox {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFFBF7 100%);
+  border: 2rpx solid #FFE7CC;
+  border-left: 6rpx solid $color-warning;
+  border-radius: $radius-md;
+  padding: $spacing-md $spacing-lg;
+}
+
+.suggestionLabel {
+  font-size: $font-size-xs;
+  color: $color-warning;
+  font-weight: $font-weight-semibold;
+  margin-bottom: 8rpx;
+}
+
+.suggestionText {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+}
+
+.platformRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.platformCard {
+  flex: 1;
+  min-width: 45%;
+  padding: $spacing-md;
+  background: $color-bg-page;
+  border-radius: $radius-md;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.platformName {
+  font-size: $font-size-sm;
+  color: $color-text-secondary;
+}
+
+.platformCount {
+  font-size: $font-size-lg;
+  font-weight: $font-weight-bold;
+  color: $color-text-primary;
+}
+
+.filterBar {
+  margin: 0 $spacing-lg $spacing-md;
+}
+
+.sortSub {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 $spacing-lg $spacing-md;
+  padding: 0 4rpx;
+}
+
+.sortInfo {
+  font-size: $font-size-xs;
+  color: $color-text-tertiary;
+}
+
+.sortBtns {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.sortBtn {
+  padding: 8rpx 20rpx;
+  border-radius: $radius-button;
+  background: $color-bg-card;
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  font-weight: $font-weight-medium;
+}
+
+.sortBtnActive {
+  background: $color-primary;
+  color: $color-text-white;
+}
+
+.commentList {
+  padding: 0 $spacing-lg;
+}
+
+.handledBanner {
+  margin: 0 $spacing-lg $spacing-lg;
+  padding: $spacing-md $spacing-lg;
+  background: $color-success-bg;
+  border: 2rpx solid rgba(0, 180, 42, 0.2);
+  border-radius: $radius-md;
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-md;
+}
+
+.handledIcon {
+  font-size: 40rpx;
+  line-height: 1;
+}
+
+.handledInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.handledLabel {
+  font-size: $font-size-sm;
+  font-weight: $font-weight-semibold;
+  color: $color-success;
+}
+
+.handledNote {
+  font-size: $font-size-xs;
+  color: $color-text-secondary;
+  line-height: $line-height-normal;
+}
+
+.handledTime {
+  font-size: 20rpx;
+  color: $color-text-tertiary;
+}
+
+.footerBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: $spacing-md $spacing-lg;
+  padding-bottom: calc(#{$spacing-md} + env(safe-area-inset-bottom));
+  background: $color-bg-card;
+  box-shadow: 0 -4rpx 16rpx rgba(0, 0, 0, 0.06);
+  display: flex;
+  gap: $spacing-md;
+  z-index: 100;
+}
+
+.secondaryBtn, .primaryBtn {
+  @include button-reset;
+  flex: 1;
+  height: $button-height-lg;
+  border-radius: $radius-button;
+  font-size: $font-size-md;
+  font-weight: $font-weight-semibold;
+  transition: all $transition-base;
+
+  &:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+}
+
+.secondaryBtn {
+  background: $color-bg-page;
+  color: $color-text-secondary;
+  border: 2rpx solid $color-border;
+}
+
+.primaryBtn {
+  background: linear-gradient(135deg, $color-primary 0%, $color-primary-light 100%);
+  color: $color-text-white;
+  flex: 2;
+  box-shadow: 0 8rpx 20rpx rgba(30, 100, 255, 0.3);
+}

@@ -1,0 +1,52 @@
+// ============================================
+// 主题配色变量（舆情监控风格）
+// ============================================
+
+// 品牌主题色：深蓝 - 专业可靠
+$color-primary: #1E64FF;
+$color-primary-light: #4C8BFF;
+$color-primary-dark: #0E42D2;
+$color-primary-bg: rgba(30, 100, 255, 0.08);
+
+// 功能色 - 优先级等级
+$color-priority-high: #F53F3F;   // 高优 - 红色
+$color-priority-high-bg: rgba(245, 63, 63, 0.1);
+$color-priority-mid: #FF7D00;    // 中优 - 橙色
+$color-priority-mid-bg: rgba(255, 125, 0, 0.1);
+$color-priority-low: #168CFF;    // 低优 - 蓝色
+$color-priority-low-bg: rgba(22, 140, 255, 0.1);
+
+// 功能色 - 标准语义
+$color-success: #00B42A;
+$color-success-bg: rgba(0, 180, 42, 0.1);
+$color-warning: #FF7D00;
+$color-error: #F53F3F;
+$color-info: #165DFF;
+
+// 情感色
+$color-sentiment-negative: #F53F3F;
+$color-sentiment-negative-bg: rgba(245, 63, 63, 0.08);
+$color-sentiment-neutral: #86909C;
+$color-sentiment-neutral-bg: rgba(134, 144, 156, 0.1);
+$color-sentiment-positive: #00B42A;
+$color-sentiment-positive-bg: rgba(0, 180, 42, 0.08);
+
+// 背景色
+$color-bg-page: #F5F7FA;
+$color-bg-card: #FFFFFF;
+$color-bg-hover: #F2F3F5;
+$color-bg-tag: #F7F8FA;
+
+// 文本色
+$color-text-primary: #1D2129;
+$color-text-secondary: #4E5969;
+$color-text-tertiary: #86909C;
+$color-text-disabled: #C9CDD4;
+$color-text-white: #FFFFFF;
+
+// 边框色
+$color-border: #E5E6EB;
+$color-divider: #F2F3F5;
+
+// 增长统计色
+$color-growth-up: #F53F3F;

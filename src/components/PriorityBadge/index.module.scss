@@ -1,0 +1,50 @@
+@use '@/styles/variables.scss' as *;
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  border-radius: $radius-sm;
+  font-weight: $font-weight-medium;
+  white-space: nowrap;
+}
+
+.size-sm {
+  padding: 4rpx 12rpx;
+  border-radius: $radius-xs;
+  .text { font-size: $font-size-xs; }
+  .dot { width: 10rpx; height: 10rpx; }
+}
+
+.size-md {
+  padding: 8rpx 16rpx;
+  .text { font-size: $font-size-sm; }
+  .dot { width: 12rpx; height: 12rpx; }
+}
+
+.dot {
+  border-radius: $radius-round;
+  flex-shrink: 0;
+}
+
+.text {
+  line-height: 1;
+}
+
+.priority-high {
+  background: $color-priority-high-bg;
+  color: $color-priority-high;
+  .dot { background: $color-priority-high; }
+}
+
+.priority-mid {
+  background: $color-priority-mid-bg;
+  color: $color-priority-mid;
+  .dot { background: $color-priority-mid; }
+}
+
+.priority-low {
+  background: $color-priority-low-bg;
+  color: $color-priority-low;
+  .dot { background: $color-priority-low; }
+}
